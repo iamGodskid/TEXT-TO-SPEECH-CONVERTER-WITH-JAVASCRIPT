@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <textarea id="text"></textarea>
+    <button id="play">play</button>
+   <button id="pause">pause</button>
+    
+    <script deffer type="text/javascript">
+      var playButton=document.getElementById("play");
+      var textInput=document.getElementById("text");
+      var pauseButton=document.getElementById("pause");
+      
+      playButton.addEventListener('click', () => {
+        playText(textInput.value);
+      });
+      
+      pauseButton.addEventListener('click', () => {
+        pausetext();
+      });
+      
+      function pausetext(){
+        utterance.pause();
+      }
+      
+      function playText(text){
+        var utterance = new SpeechSynthesisUtterance(textInput);
+        utterance.rate = 1;
+        utterance.text=text;
+        utterance.pitch = 0.5;
+          speechSynthesis.speak(utterance);
+      }
+    </script>
+  </body>
+</html>
